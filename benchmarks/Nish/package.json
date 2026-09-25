@@ -1,0 +1,10 @@
+{
+  "name": "awfy-nish",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Are We Fast Yet? benchmarks for the Nish compiler",
+  "license": "MIT",
+  "devDependencies": {
+    "@amritk/nish": "0.10.0"
+  }
+}

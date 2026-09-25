@@ -20,6 +20,7 @@ jobs:
           - { name: Lua, id: lua, folder: Lua }
           - { name: Python, id: python, folder: Python }
           - { name: C++, id: cpp, folder: C++ }
+          - { name: Nish, id: nish, folder: Nish }
 
     name: ${{ matrix.name }}
     steps:
@@ -47,6 +48,19 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y clang-17 clang-format-17 clang-tidy-17
         if: matrix.id == 'cpp'
+
+      - name: Install Node for Nish
+        if: matrix.id == 'nish'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Clang 18 and lld for Nish
+        if: matrix.id == 'nish'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-18 lld-18
+          echo "CC=clang-18" >> "$GITHUB_ENV"
 
       - name: Install Crystal
         if: matrix.id == 'crystal'
