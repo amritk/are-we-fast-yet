@@ -7,7 +7,7 @@ Ported so far: Bounce, List, Mandelbrot, Permute, Queens, Storage, Towers.
 
 ## Building and running
 
-Requires Node.js 22.18+ (for the `nish` launcher) and clang 18 with lld. On
+Requires Node.js 22.18+ (CI uses 26) (for the `nish` launcher) and clang 18 with lld. On
 Debian/Ubuntu, set `CC=clang-18` if only the versioned binary is installed.
 
 ```bash
@@ -26,8 +26,8 @@ Nish has no inheritance, no function values and no garbage collector, so:
 - Each benchmark is a standalone class with its own `innerBenchmarkLoop`
   instead of subclassing `Benchmark`, and the harness selects one by name.
 - There is no GC. The harness releases the arena after each measured
-  iteration. Storage also releases it after each tree it builds, the way the
-  C++ port calls `delete[]`.
+  iteration. Within one, the compiler's automatic arena scopes reclaim what
+  each `benchmark()` call allocates (since nish 0.11.0).
 - Storage's leaves are `(ArrayTree | null)[]` filled with `null`s. An inner
   node wraps each child array in an `ArrayTree`, because a Nish type cannot
   refer to itself except through a class.

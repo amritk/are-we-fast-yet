@@ -5,6 +5,6 @@
   "description": "Are We Fast Yet? benchmarks for the Nish compiler",
   "license": "MIT",
   "devDependencies": {
-    "@amritk/nish": "0.10.0"
+    "@amritk/nish": "0.11.0"
   }
 }

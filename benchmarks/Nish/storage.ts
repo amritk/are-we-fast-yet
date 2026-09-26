@@ -29,11 +29,7 @@ export class Storage {
   benchmark(): i32 {
     const random = new Random();
     this.count = 0;
-    // There is no GC to collect the tree, so give it back to the arena once it
-    // is built, as the C++ port does with `delete[]`.
-    const mark = Arena.mark();
     this.buildTreeDepth(7, random);
-    Arena.release(mark);
     return this.count;
   }
 
