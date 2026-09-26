@@ -35,3 +35,18 @@ Nish has no inheritance, no function values and no garbage collector, so:
   JavaScript relies on the VM's implicit check.
 - Array bounds checks stay on (the compiler's default). `--unchecked-indexing`
   exists but is not used.
+
+## Licence
+
+Each port carries the licence notice of the program it was ported from, copied
+from the header of the matching `benchmarks/JavaScript/*.js` file:
+
+- `bounce.ts`, `harness.ts`, `list.ts`, `permute.ts`, `queens.ts`, `som.ts`,
+  `storage.ts` and `towers.ts` derive from the SOM benchmarks: MIT, Copyright
+  (c) 2015-2016 Stefan Marr. The people behind SOM are listed in `AUTORS.md` at
+  the repository root.
+- `mandelbrot.ts` derives from the Computer Language Benchmarks Game program,
+  adapted to match the SOM version: Revised BSD, Copyright © 2004-2013 Brent
+  Fulgham.
+
+A new port, or code copied out of these files, keeps that header.
